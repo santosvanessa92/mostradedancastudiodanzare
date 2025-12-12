@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encarte - Do Plié à Ponta</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fontes do Primeiro Modelo -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <style>
         /* Paleta de Cores Clássica */
@@ -18,13 +17,12 @@
 
         body {
             font-family: 'Lato', sans-serif;
-            background-color: #fffbf0; /* Fundo Creme */
+            background-color: #fffbf0;
             background-image: radial-gradient(#f3e5f5 1px, transparent 1px);
             background-size: 20px 20px;
             color: var(--color-text);
         }
 
-        /* Tipografia Clássica */
         h1, h2, .script-font {
             font-family: 'Great Vibes', cursive;
         }
@@ -33,20 +31,19 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Estilo "Papel Texturizado" */
         .paper-texture {
             background-color: #fff;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid rgba(197, 160, 89, 0.3); /* Borda Dourada Sutil */
+            border: 1px solid rgba(197, 160, 89, 0.3);
             position: relative;
         }
 
-        /* Capa ajustada para mostrar imagem completa */
         .cover-container {
             position: relative;
             overflow: hidden;
-            border-radius: 8px; /* Borda arredondada completa */
+            border-radius: 8px;
             background-color: #fff;
+            min-height: 200px;
         }
         
         .cover-image {
@@ -55,7 +52,6 @@
             display: block;
         }
 
-        /* Container de Nomes (Estilo Clássico com separador) */
         .names-container {
             text-align: center;
             line-height: 1.8;
@@ -70,7 +66,6 @@
             vertical-align: middle;
         }
 
-        /* Animação */
         .fade-in-up {
             animation: fadeInUp 1s ease-out forwards;
             opacity: 0;
@@ -85,30 +80,29 @@
         .delay-200 { animation-delay: 0.4s; }
         .delay-300 { animation-delay: 0.6s; }
 
-        /* Mensagem de erro amigável se a imagem faltar */
-        .img-error {
+        /* Estilo para avisar se a imagem não carregar */
+        .img-warning {
             padding: 40px;
             text-align: center;
-            background: #fdf2f2;
-            color: #c53030;
-            border: 2px dashed #c53030;
+            background: #f0f0f0;
+            color: #666;
+            font-size: 0.8rem;
+            border: 1px dashed #ccc;
         }
     </style>
 </head>
 <body class="min-h-screen py-4 px-3 md:py-8 md:px-0">
 
-    <!-- Ajustado max-w para acomodar melhor a imagem completa -->
     <main class="max-w-xl mx-auto space-y-8 md:space-y-12 pb-12">
 
         <!-- CAPA -->
         <section class="paper-texture rounded-lg overflow-hidden fade-in-up shadow-xl relative">
             <div class="cover-container">
-                <!-- CONFIGURADO PARA ARQUIVO LOCAL -->
-                <!-- Salve sua imagem como 'capa.jpg' na mesma pasta -->
+                <!-- AQUI: O código busca apenas o arquivo 'capa.jpg' na mesma pasta -->
                 <img src="capa.jpg" 
                      alt="Capa Do Plié à Ponta" 
                      class="cover-image"
-                     onerror="this.onerror=null; this.src='https://onedrive.live.com/personal/d41f33d02e9dfbea/_api/v2.1/drives/D41F33D02E9DFBEA/items/D41F33D02E9DFBEA!s99021a2e90494e64959060be61b467c3/thumbnails/0/c955x955/content?prefer=noredirect%2Cclosestavailablesize&cb=%22c%3A%7B99021A2E-9049-4E64-9590-60BE61B467C3%7D%2C3%22&photossw=1&skipAuth=1&eh=application%3Aonedrive+web+consumer%2Cscenario%3ABrowsePhoto_OneUp&it=originalScale%3Ac512x512%2CdownloadScale%3Ac955x955%2Cmigrated%3Atrue%2CscenarioName%3ArenderPhoto';">
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'img-warning\'>⚠️ Imagem não carregou.<br>Verifique no GitHub se o arquivo se chama exatamente <b>capa.jpg</b> (tudo minúsculo).</div>'">
             </div>
         </section>
 
@@ -117,12 +111,10 @@
             
             <!-- LOGO -->
             <div class="mb-6 flex justify-center">
-                <!-- CONFIGURADO PARA ARQUIVO LOCAL -->
-                <!-- Salve sua logo como 'studiologo.png' na mesma pasta -->
                 <img src="studiologo.png" 
                      class="w-32 h-auto" 
                      alt="Logo Studio Danzare"
-                     onerror="this.style.display='none';"> 
+                     onerror="this.style.display='none'"> 
             </div>
 
             <h2 class="text-3xl md:text-4xl text-[#4a3b69] mb-6 script-font">
